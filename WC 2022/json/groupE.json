@@ -1,0 +1,54 @@
+[
+    {
+        "team": "Spain",
+        "rang": 7,
+        "points": 0,
+        "goaldifference": 0,
+        "group": "E",
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goals": 0,
+        "goalsConceded": 0,
+        "teamNum": 1
+    },
+    {
+        "team": "IC Play-off 2",
+        "rang": 28,
+        "points": 0,
+        "goaldifference": 0,
+        "group": "E",
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goals": 0,
+        "goalsConceded": 0,
+        "teamNum": 2
+    },
+    {
+        "team": "Germany",
+        "rang": 12,
+        "points": 0,
+        "goaldifference": 0,
+        "group": "E",
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goals": 0,
+        "goalsConceded": 0,
+        "teamNum": 3
+    },
+    {
+        "team": "Japan",
+        "rang": 23,
+        "points": 0,
+        "goaldifference": 0,
+        "group": "E",
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goals": 0,
+        "goalsConceded": 0,
+        "teamNum": 4
+    }
+]
