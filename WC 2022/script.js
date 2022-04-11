@@ -4,6 +4,7 @@ function refreshPage() {
 
 const main = () => {
   winnersOfGroups = [];
+  winnersOfGroupsList = [];
 
   podaciJson("groupA");
   podaciJson("groupB");
@@ -20,7 +21,7 @@ const main = () => {
     xHr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         let grupe = JSON.parse(this.responseText);
-        // console.log(grupe);
+        console.log(grupe);
 
         mecevi(
           grupe[0],
@@ -58,6 +59,13 @@ const main = () => {
           );
         });
 
+        let grupe1 = grupe[0].group + "1";
+        let grupe2 = grupe[1].group + "2";
+        console.log( grupe1, grupe2);
+
+        grupe[0].position = grupe1;
+        grupe[1].position = grupe2;
+
         let html = ``;
 
         html += `
@@ -73,33 +81,35 @@ const main = () => {
         document.getElementById(`groups`).innerHTML += html;
 
         let qualification = [grupe[0].team, grupe[1].team];
+        let qualificationGroup = [grupe[0].position, grupe[1].position];
+        winnersOfGroupsList.push(qualificationGroup);
+
+        console.log(winnersOfGroupsList);
         winnersOfGroups.push(qualification);
-        // console.log(qualification);
-        // console.log(winnersOfGroups);
 
-        let a1 = winnersOfGroups[0][0];
-        let a2 = winnersOfGroups[0][1];
+        let a1 = [winnersOfGroups[0][0], winnersOfGroupsList[0][0]];
+        let a2 = [winnersOfGroups[0][1], winnersOfGroupsList[0][1]];
 
-        let b1 = winnersOfGroups[1][0];
-        let b2 = winnersOfGroups[1][1];
+        let b1 = [winnersOfGroups[1][0], winnersOfGroupsList[1][0]];
+        let b2 = [winnersOfGroups[1][1], winnersOfGroupsList[1][1]];
 
-        let c1 = winnersOfGroups[2][0];
-        let c2 = winnersOfGroups[2][1];
+        let c1 = [winnersOfGroups[2][0], winnersOfGroupsList[2][0]];
+        let c2 = [winnersOfGroups[2][1], winnersOfGroupsList[2][1]];
 
-        let d1 = winnersOfGroups[3][0];
-        let d2 = winnersOfGroups[3][1];
+        let d1 = [winnersOfGroups[3][0], winnersOfGroupsList[3][0]];
+        let d2 = [winnersOfGroups[3][1], winnersOfGroupsList[3][1]];
 
-        let e1 = winnersOfGroups[4][0];
-        let e2 = winnersOfGroups[4][1];
+        let e1 = [winnersOfGroups[4][0], winnersOfGroupsList[4][0]];
+        let e2 = [winnersOfGroups[4][1], winnersOfGroupsList[4][1]];
 
-        let f1 = winnersOfGroups[5][0];
-        let f2 = winnersOfGroups[5][1];
+        let f1 = [winnersOfGroups[5][0], winnersOfGroupsList[5][0]];
+        let f2 = [winnersOfGroups[5][1], winnersOfGroupsList[5][1]];
 
-        let g1 = winnersOfGroups[6][0];
-        let g2 = winnersOfGroups[6][1];
+        let g1 = [winnersOfGroups[6][0], winnersOfGroupsList[6][0]];
+        let g2 = [winnersOfGroups[6][1], winnersOfGroupsList[6][1]];
 
-        let h1 = winnersOfGroups[7][0];
-        let h2 = winnersOfGroups[7][1];
+        let h1 = [winnersOfGroups[7][0], winnersOfGroupsList[7][0]];
+        let h2 = [winnersOfGroups[7][1], winnersOfGroupsList[7][1]];
 
         let osmina1 = [];
         let osmina2 = [];
@@ -121,25 +131,25 @@ const main = () => {
         let final = [];
         let prazno = [];
 
-        EliminationPhase(a1, b2, osmina1, "osminaFinala");
-        EliminationPhase(c1, d2, osmina2, "osminaFinala");
-        EliminationPhase(e1, f2, osmina3, "osminaFinala");
-        EliminationPhase(g1, h2, osmina4, "osminaFinala");
-        EliminationPhase(b1, a2, osmina5, "osminaFinala");
-        EliminationPhase(d1, c2, osmina6, "osminaFinala");
-        EliminationPhase(f1, e2, osmina7, "osminaFinala");
-        EliminationPhase(h1, g2, osmina8, "osminaFinala");
+        EliminationPhase(a1[0], b2[0], osmina1, "osminaFinala", a1[1], b2[1]);
+        EliminationPhase(c1[0], d2[0], osmina2, "osminaFinala", c1[1], d2[1]);
+        EliminationPhase(e1[0], f2[0], osmina3, "osminaFinala", e1[1], f2[1]);
+        EliminationPhase(g1[0], h2[0], osmina4, "osminaFinala", g1[1], h2[1]);
+        EliminationPhase(b1[0], a2[0], osmina5, "osminaFinala", b1[1], a2[1]);
+        EliminationPhase(d1[0], c2[0], osmina6, "osminaFinala", d1[1], c2[1]);
+        EliminationPhase(f1[0], e2[0], osmina7, "osminaFinala", f1[1], e2[1]);
+        EliminationPhase(h1[0], g2[0], osmina8, "osminaFinala", h1[1], g2[1]);
 
-        EliminationPhase(osmina1, osmina2, cetvrtina1, "cetvrtinaFinala");
-        EliminationPhase(osmina3, osmina4, cetvrtina2, "cetvrtinaFinala");
-        EliminationPhase(osmina5, osmina6, cetvrtina3, "cetvrtinaFinala");
-        EliminationPhase(osmina7, osmina8, cetvrtina4, "cetvrtinaFinala");
+        EliminationPhase(osmina1[0], osmina2[0], cetvrtina1, "cetvrtinaFinala", osmina1[1], osmina2[1]);
+        EliminationPhase(osmina3[0], osmina4[0], cetvrtina2, "cetvrtinaFinala", osmina3[1], osmina4[1]);
+        EliminationPhase(osmina5[0], osmina6[0], cetvrtina3, "cetvrtinaFinala", osmina5[1], osmina6[1]);
+        EliminationPhase(osmina7[0], osmina8[0], cetvrtina4, "cetvrtinaFinala", osmina7[1], osmina8[1]);
 
-        EliminationPhase(cetvrtina1, cetvrtina2, polu1, "poluFinale");
-        EliminationPhase(cetvrtina3, cetvrtina4, polu2, "poluFinale");
+        EliminationPhase(cetvrtina1[0], cetvrtina2[0], polu1, "poluFinale", cetvrtina1[1], cetvrtina2[1]);
+        EliminationPhase(cetvrtina3[0], cetvrtina4[0], polu2, "poluFinale", cetvrtina3[1], cetvrtina4[1]);
 
-        EliminationPhase(polu1, polu2, final, "Finale");
-        EliminationPhase(final, "", prazno, "winner");
+        EliminationPhase(polu1[0], polu2[0], final, "Finale", polu1[1], polu2[1]);
+        EliminationPhase(final[0], "", prazno, "winner");
       }
 
       if (this.status >= 400) {
@@ -247,7 +257,7 @@ const main = () => {
       document.getElementById(`${round}`).innerHTML += matches;
     }
 
-    function EliminationPhase(prvi, drugi, variabla, final) {
+    function EliminationPhase(prvi, drugi, variabla, final, position1, position2) {
       let mec = [
         prvi,
         Math.round(Math.random() * 6),
@@ -255,33 +265,48 @@ const main = () => {
         drugi,
       ];
 
+      let klasaPobednik1 = '';
+      let klasaPobednik2 = '';
+
       if (mec[1] != mec[2]) {
         if (mec[1] > mec[2]) {
-          variabla.push(mec[0]);
+          variabla.push(mec[0], position1);
+          klasaPobednik1 = 'pobednik';
+          klasaPobednik2 = '';
         }
 
         if (mec[1] < mec[2]) {
-          variabla.push(mec[3]);
+          variabla.push(mec[3], position2);
+          klasaPobednik2 = 'pobednik';
+          klasaPobednik1 = '';
         }
       } else {
         mec[1] = Math.round(Math.random() * 6);
         mec[2] = Math.round(Math.random() * 6);
         if (mec[1] > mec[2]) {
-          variabla.push(mec[0]);
+          variabla.push(mec[0], position1);
+          klasaPobednik1 = 'pobednik';
+          klasaPobednik2 = '';
         }
 
         if (mec[1] < mec[2]) {
-          variabla.push(mec[3]);
+          variabla.push(mec[3], position2);
+          klasaPobednik2 = 'pobednik';
+          klasaPobednik1 = '';
         }
 
         if (mec[1] == mec[2]) {
           let pobednik = Math.ceil(Math.random() * 2);
           if (pobednik == 1) {
             mec[1] += 1;
-            variabla.push(mec[0]);
+            variabla.push(mec[0], position1);
+            klasaPobednik1 = 'pobednik';
+            klasaPobednik2 = '';
           } else {
             mec[2] += 1;
-            variabla.push(mec[3]);
+            variabla.push(mec[3], position2);
+            klasaPobednik2 = 'pobednik';
+            klasaPobednik1 = '';
           }
         }
       }
@@ -290,7 +315,7 @@ const main = () => {
 
       mecevi += `
       <ul class="margin blue">
-        <li class=""><span class="levo">${mec[0]}</span> <span class="res red">${mec[1]} : ${mec[2]}</span> <span class="desno">${mec[3]}</span></li>
+        <li class=""><span class="levo ${klasaPobednik1}">(${position1})${mec[0]}</span> <span class="res red">${mec[1]} : ${mec[2]}</span> <span class="desno ${klasaPobednik2}">(${position2})${mec[3]}</span></li>
       </ul>`;
 
       let winner = `
