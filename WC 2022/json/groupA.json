@@ -11,7 +11,8 @@
         "goals": 0,
         "goalsConceded": 0,
         "winner": "aa",
-        "teamNum": 1
+        "teamNum": 1,
+        "position": ""
     },
     {
         "team": "Ecuador",
@@ -24,7 +25,8 @@
         "lose": 0,
         "goals": 0,
         "goalsConceded": 0,
-        "teamNum": 2
+        "teamNum": 2,
+        "position": ""
     },
     {
         "team": "Senegal",
@@ -37,7 +39,8 @@
         "lose": 0,
         "goals": 0,
         "goalsConceded": 0,
-        "teamNum": 3
+        "teamNum": 3,
+        "position": ""
     },
     {
         "team": "Netherlands",
@@ -50,6 +53,7 @@
         "lose": 0,
         "goals": 0,
         "goalsConceded": 0,
-        "teamNum": 4
+        "teamNum": 4,
+        "position": ""
     }
 ]
